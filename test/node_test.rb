@@ -11,6 +11,12 @@ class NodeTest < MiniTest::Test
     assert_instance_of Node, node
   end
 
+  def test_if_data_method_works
+    node = Node.new("plop")
+    assert_equal "plop", node.data
+
+  end
+
 
 
 
