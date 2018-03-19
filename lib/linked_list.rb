@@ -14,6 +14,11 @@ class LinkedList
     @head = Node.new(data)
   end
 
+  def to_string
+    "#{@head.data}"
+
+  end
+
 
 
 

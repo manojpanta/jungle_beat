@@ -24,7 +24,8 @@ class LinkedListTest < MiniTest::Test
   def test_count_method_is_working
     list = LinkedList.new
     list.append("doop")
-    assert_equal 1, list.count
+    list.append("doop")
+    assert_equal 2, list.count
     # require 'pry' ; binding.pry
   end
 
@@ -32,6 +33,12 @@ class LinkedListTest < MiniTest::Test
     list = LinkedList.new
     list.append("doop")
     assert_nil list.head.next_node
+  end
+
+  def test_if_to_string_method_works
+    list = LinkedList.new
+    list.append("doop")
+    assert_equal "doop", list.to_string
   end
 
 
