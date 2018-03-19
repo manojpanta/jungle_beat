@@ -70,8 +70,21 @@ class LinkedListTest < MiniTest::Test
   end
 
   def test_if_insert_method_works
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    list.insert(1, "woo")
+    # require 'pry' ; binding.pry
+    assert_equal 4, list.count
+    assert_equal "dop woo plop suu", list.to_string
+  end
 
-
+  def test_for_insert_for_edge_cases
+    list = LinkedList.new
+    list.append("plop")
+    list.insert(1, "woo")
+    assert_equal "plop", list.head.data
   end
 
 
