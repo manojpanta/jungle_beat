@@ -3,7 +3,6 @@ require 'minitest/pride'
 require 'pry'
 require './lib/node'
 
-
 class NodeTest < MiniTest::Test
 
   def test_if_it_exists
@@ -20,12 +19,4 @@ class NodeTest < MiniTest::Test
     node = Node.new("plop")
     assert_nil node.next_node
   end
-
-
-
-
-
-
-
-
 end
