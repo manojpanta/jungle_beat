@@ -22,15 +22,14 @@ class LinkedList
     end
   end
 
-  def to_string
-    beat  = "#{@head.data}"
-    current = @head
+  def to_string(current = @head, length = @count)
+    beat  = "#{current.data}"
     if @head.nil?
       nil
     elsif @head.next_node.nil?
       beat
     else
-      until current.next_node.nil?
+      (length-1).times do
         current = current.next_node
         beat.concat(" #{current.data}")
       end
@@ -56,7 +55,7 @@ class LinkedList
     else
       counter = 0
       current = @head
-      until counter == position -1
+      until counter == position - 1
         current = current.next_node
         counter += 1
       end
@@ -65,6 +64,15 @@ class LinkedList
         current.next_node = new_node
     end
 
+    def find(position, length)
+      count = 0
+      current = @head
+      until count == position
+        current = current.next_node
+        count +=  1
+      end
+      to_string(current, length)
+    end
 
   end
 

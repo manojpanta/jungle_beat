@@ -87,6 +87,15 @@ class LinkedListTest < MiniTest::Test
     assert_equal "plop", list.head.data
   end
 
+  def test_find_method_is_working
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    list.insert(1, "woo")
+    assert_equal "plop", list.find(2, 1)
+  end
+
 
 
 
