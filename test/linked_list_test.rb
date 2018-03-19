@@ -1,4 +1,5 @@
 require './lib/linked_list'
+require './lib/node'
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'pry'
@@ -39,6 +40,13 @@ class LinkedListTest < MiniTest::Test
     list = LinkedList.new
     list.append("doop")
     assert_equal "doop", list.to_string
+  end
+
+  def test_if_multiple_appending_works
+    list = LinkedList.new
+    list.append("doop")
+    list.append("deep")
+    assert_equal "deep", list.head.next_node.data
   end
 
 
