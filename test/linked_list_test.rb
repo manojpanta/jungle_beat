@@ -25,10 +25,14 @@ class LinkedListTest < MiniTest::Test
     list = LinkedList.new
     list.append("doop")
     assert_equal 1, list.count
+    # require 'pry' ; binding.pry
   end
 
-
-
+  def test_head_next_node
+    list = LinkedList.new
+    list.append("doop")
+    assert_nil list.head.next_node
+  end
 
 
 
