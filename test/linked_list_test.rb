@@ -46,7 +46,26 @@ class LinkedListTest < MiniTest::Test
     list = LinkedList.new
     list.append("doop")
     list.append("deep")
+    list.append("ddododoodp")
     assert_equal "deep", list.head.next_node.data
+    assert_equal 3, list.count
+  end
+
+  def test_to_string_method_for_multiple_appends
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.append("dop")
+    assert_equal "plop suu dop", list.to_string
+    assert_equal 3, list.count
+  end
+
+  def test_for_prepend_method
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.append("dop")
+    assert_equal "dop plop suu", list.to_string
   end
 
 

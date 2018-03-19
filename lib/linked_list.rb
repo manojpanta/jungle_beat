@@ -23,9 +23,28 @@ class LinkedList
   end
 
   def to_string
-
-    "#{@head.data}"
+    beat  = "#{@head.data}"
+    current = @head
+    if @head.nil?
+      nil
+    elsif @head.next_node.nil?
+      beat
+    else
+      until current.next_node.nil?
+        current = current.next_node
+        beat.concat(" #{current.data}")
+      end
+    end
+    beat
   end
+
+  def prepend(data)
+
+
+
+  end
+
+
 
 
 
