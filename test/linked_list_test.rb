@@ -64,8 +64,14 @@ class LinkedListTest < MiniTest::Test
     list = LinkedList.new
     list.append("plop")
     list.append("suu")
-    list.append("dop")
+    list.prepend("dop")
     assert_equal "dop plop suu", list.to_string
+    assert_equal 3, list.count
+  end
+
+  def test_if_insert_method_works
+
+
   end
 
 

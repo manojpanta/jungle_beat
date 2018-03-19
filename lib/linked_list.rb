@@ -39,9 +39,14 @@ class LinkedList
   end
 
   def prepend(data)
-
-
-
+    @count += 1
+    if @head.nil?
+      @head = Node.new(data)
+    else
+      old_head = @head
+      @head = Node.new(data)
+      @head.next_node = old_head
+    end
   end
 
 
