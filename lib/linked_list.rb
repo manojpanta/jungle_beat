@@ -29,7 +29,7 @@ class LinkedList
     elsif @head.next_node.nil?
       beat
     else
-      (length-1).times do
+      (length - 1).times do
         current = current.next_node
         beat.concat(" #{current.data}")
       end
@@ -63,46 +63,36 @@ class LinkedList
         new_node.next_node = current.next_node
         current.next_node = new_node
     end
-
-    def find(position, length)
-      count = 0
-      current = @head
-      until count == position
-        current = current.next_node
-        count +=  1
-      end
-      to_string(current, length)
-    end
-
-    def includes?(data, current = @head)
-      if current.data == data
-        return true
-      else
-        current = current.next_node
-        includes?(data, current)
-      end
-    end
-
-    def pop
-      @count -= 1
-      current = @head
-      until current.next_node.next_node.nil?
-        current = current.next_node
-      end
-      data = "#{current.next_node.data}"
-      current.next_node = nil
-      data
-    end
-
-
-
-
   end
 
+  def find(position, length)
+    count = 0
+    current = @head
+    until count == position
+      current = current.next_node
+      count +=  1
+    end
+    to_string(current, length)
+  end
 
+  def includes?(data, current = @head)
+    if current.data == data
+      return true
+    else
+      current = current.next_node
+      includes?(data, current)
+    end
+  end
 
-
-
-
+  def pop
+    @count -= 1
+    current = @head
+    until current.next_node.next_node.nil?
+      current = current.next_node
+    end
+    data = "#{current.next_node.data}"
+    current.next_node = nil
+    data #we have to do this beacause the method returns the last line of code.
+  end
 
 end
