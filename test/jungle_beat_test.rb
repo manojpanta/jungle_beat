@@ -12,6 +12,15 @@ class JungleBeatTest < Minitest:: Test
     assert_nil jb.list.head
   end
 
+  def test_if_append_method_works
+    jb = JungleBeat.new
+    jb.append("deep doo ditt")
+    jb.append("woo hoo shu")
+    assert_equal "deep", jb.list.head.data
+    assert_equal 6, jb.count
+
+  end
+
 
 
 
