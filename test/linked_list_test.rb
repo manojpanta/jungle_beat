@@ -27,6 +27,7 @@ class LinkedListTest < MiniTest::Test
     list.append("doop")
     list.append("doop")
     assert_equal 2, list.count
+    # require 'pry' ; binding.pry
   end
 
   def test_head_next_node
@@ -115,6 +116,22 @@ class LinkedListTest < MiniTest::Test
     assert_equal "dop plop woo suu", list.to_string
     assert_equal "suu", list.pop
     assert_equal "dop plop woo", list.to_string
+  end
+
+  def test_every_method_altogether
+    list = LinkedList.new
+    list.append("plop")
+    list.append("dup")
+    list.append("dop")
+    list.append("woo")
+    list.prepend("suu")
+    list.insert(1,"sup")
+    list.pop
+    assert_equal true, list.includes?("suu")
+    assert_equal false, list.includes?("")
+    assert_equal "dup", list.find(3,1)
+    assert_equal "suu", list.head.data
+    assert_equal "suu sup plop dup dop", list.to_string
   end
 
 
