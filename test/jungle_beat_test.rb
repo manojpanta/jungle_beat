@@ -18,8 +18,15 @@ class JungleBeatTest < Minitest:: Test
     jb.append("woo hoo shu")
     assert_equal "deep", jb.list.head.data
     assert_equal 6, jb.count
-
   end
+
+  def test_for_play_methods
+    jb = JungleBeat.new
+    jb.append("my name is manoj panta ")
+    assert_equal 5,jb.count
+    jb.play
+  end
+
 
 
 
