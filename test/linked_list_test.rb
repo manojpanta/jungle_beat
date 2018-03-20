@@ -106,8 +106,22 @@ class LinkedListTest < MiniTest::Test
     assert_equal true, list.includes?("plop")
     assert_equal true, list.includes?("dop")
     assert_equal true, list.includes?("woo")
-
   end
+
+  def test_if_pop_method_works
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    list.insert(1, "woo")
+    assert_equal "dop woo plop suu", list.to_string
+    assert_equal "suu", list.pop
+    assert_equal "dop woo plop", list.to_string
+  end
+
+
+
+
 
 
 
