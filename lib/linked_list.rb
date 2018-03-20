@@ -2,15 +2,13 @@ require './lib/node'
 
 class LinkedList
 
-  attr_reader :head, :count
+  attr_reader :head
 
   def initialize
     @head = nil
-    @count = 0
   end
 
   def append(data)
-    @count += 1
     current = @head
     if current.nil?
     @head = Node.new(data)
@@ -22,23 +20,29 @@ class LinkedList
     end
   end
 
-  def to_string(current = @head, length = @count)
-    beat  = "#{current.data}"
-    if @head.nil?
-      nil
-    elsif @head.next_node.nil?
-      beat
-    else
-      (length - 1).times do
+  def count
+    current = @head
+    return 0 if  current.nil?
+    counter = 1
+      until current.next_node.nil?
         current = current.next_node
-        beat.concat(" #{current.data}")
+        counter += 1
       end
+      counter
+  end
+
+
+  def to_string(current = @head, length = count)
+    return nil if current.nil?
+    beat  = "#{current.data}"
+    (length - 1).times do
+      current = current.next_node
+      beat.concat(" #{current.data}")
     end
     beat
   end
 
   def prepend(data)
-    @count += 1
     if @head.nil?
       @head = Node.new(data)
     else
@@ -49,9 +53,11 @@ class LinkedList
   end
 
   def insert(position, data)
-    @count += 1
     if @head.nil?
       @head = Node.new(data)
+    elsif
+      position >= count
+      return append(data)
     else
       counter = 0
       current = @head
@@ -66,11 +72,9 @@ class LinkedList
   end
 
   def find(position, length)
-    count = 0
     current = @head
-    until count == position
+    position.times do
       current = current.next_node
-      count +=  1
     end
     to_string(current, length)
   end
@@ -89,7 +93,6 @@ class LinkedList
   end
 
   def pop
-    @count -= 1
     current = @head
     until current.next_node.next_node.nil?
       current = current.next_node
