@@ -96,6 +96,23 @@ class LinkedListTest < MiniTest::Test
     assert_equal "plop", list.find(2, 1)
   end
 
+  def test_include_method
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    list.insert(1, "woo")
+    assert_equal true, list.includes?("suu")
+    assert_equal true, list.includes?("plop")
+    assert_equal true, list.includes?("dop")
+    assert_equal true, list.includes?("woo")
+
+  end
+
+
+
+
+
 
 
 

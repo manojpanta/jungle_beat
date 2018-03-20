@@ -74,6 +74,18 @@ class LinkedList
       to_string(current, length)
     end
 
+    def includes?(data, current = @head)
+      if current.data == data
+        return true
+      else
+        current = current.next_node
+        includes?(data, current)
+      end
+    end
+
+    
+
+
   end
 
 
