@@ -3,10 +3,8 @@ class JungleBeat
 
   attr_reader :list
 
-
   def initialize
     @list = LinkedList.new
-
   end
 
   def append(data)
@@ -19,7 +17,6 @@ class JungleBeat
   end
 
   def count
-    require "pry";
     @list.count
   end
 
@@ -30,7 +27,6 @@ class JungleBeat
       current = current.next_node
       beats << current.data
     end
-    beats
     `say -r 100 #{beats}`
   end
 end

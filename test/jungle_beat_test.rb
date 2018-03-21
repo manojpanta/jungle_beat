@@ -22,15 +22,10 @@ class JungleBeatTest < Minitest:: Test
 
   def test_for_play_methods
     jb = JungleBeat.new
-    jb.append("my name is manoj panta ")
-    assert_equal 5,jb.count
+    jb.append("dah, oom, oom, ding, oom, oom, oom, ding, dah, oom, oom, ding, dah, oom, oom, ding, dah, oom, oom ")
     jb.play
+
   end
-
-
-
-
-
 
 
 
