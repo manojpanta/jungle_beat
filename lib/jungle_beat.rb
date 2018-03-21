@@ -31,6 +31,6 @@ class JungleBeat
       beats << current.data
     end
     beats
-    `say -r 100 -v Boing #{beats}`
+    `say -r 100 #{beats}`
   end
 end
