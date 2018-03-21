@@ -1,4 +1,5 @@
 require_relative 'linked_list'
+
 class JungleBeat
 
   attr_reader :list
@@ -10,7 +11,7 @@ class JungleBeat
   def append(data)
     data = data.split
     count = 0
-    until data.length == count
+    until count == data.length
       @list.append(data[count])
       count += 1
     end

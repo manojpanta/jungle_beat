@@ -1,6 +1,5 @@
-require 'minitest/autorun'
-require 'minitest/pride'
 require 'pry'
+require_relative 'test_helper'
 require './lib/jungle_beat'
 require './lib/linked_list'
 
@@ -17,6 +16,12 @@ class JungleBeatTest < Minitest:: Test
     jb.append("deep doo ditt")
     jb.append("woo hoo shu")
     assert_equal "deep", jb.list.head.data
+  end
+
+  def test_if_count_method_works
+    jb = JungleBeat.new
+    jb.append("deep doo ditt")
+    jb.append("woo hoo shu")
     assert_equal 6, jb.count
   end
 
@@ -24,7 +29,6 @@ class JungleBeatTest < Minitest:: Test
     jb = JungleBeat.new
     jb.append("dah, oom, oom, ding, oom, oom, oom, ding, dah, oom, oom, ding, dah, oom, oom, ding, dah, oom, oom ")
     jb.play
-
   end
 
 

@@ -1,8 +1,7 @@
+require 'pry'
+require_relative 'test_helper'
 require './lib/linked_list'
 require './lib/node'
-require 'minitest/autorun'
-require 'minitest/pride'
-require 'pry'
 
 class LinkedListTest < MiniTest::Test
 

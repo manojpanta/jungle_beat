@@ -13,28 +13,27 @@ class LinkedList
     if current.nil?
     @head = Node.new(data)
     else
-      until current.next_node.nil?
+      (count - 1).times do
       current = current.next_node
       end
-    current.next_node = Node.new(data)
+      current.next_node = Node.new(data)
     end
   end
 
   def count
     current = @head
-    return 0 if  current.nil?
+    return 0 if current.nil?
     counter = 1
-      until current.next_node.nil?
-        current = current.next_node
-        counter += 1
-      end
-      counter
+    until current.next_node.nil?
+      current = current.next_node
+      counter += 1
+    end
+    counter
   end
-
 
   def to_string(current = @head, length = count)
     return nil if current.nil?
-    beat  = "#{current.data}"
+    beat = "#{current.data}"
     (length - 1).times do
       current = current.next_node
       beat.concat(" #{current.data}")
@@ -55,19 +54,16 @@ class LinkedList
   def insert(position, data)
     if @head.nil?
       @head = Node.new(data)
-    elsif
-      position >= count
+    elsif position >= count
       return append(data)
     else
-      counter = 0
       current = @head
-      until counter == position - 1
+      (position - 1).times do
         current = current.next_node
-        counter += 1
       end
-        new_node  = Node.new(data)
-        new_node.next_node = current.next_node
-        current.next_node = new_node
+      new_node = Node.new(data)
+      new_node.next_node = current.next_node
+      current.next_node = new_node
     end
   end
 
@@ -94,12 +90,13 @@ class LinkedList
 
   def pop
     current = @head
-    until current.next_node.next_node.nil?
+    (count - 2).times do
       current = current.next_node
     end
     data = "#{current.next_node.data}"
     current.next_node = nil
-    data #we have to do this beacause the method returns the last line of code.
+    data
+    # we have to do this beacause the method returns the last line of code.
+    # until current.next_node.next_node.nil? #(we can do this way too on line no 95.)
   end
-
 end
