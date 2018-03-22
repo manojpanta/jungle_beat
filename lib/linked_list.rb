@@ -55,7 +55,7 @@ class LinkedList
     if @head.nil?
       @head = Node.new(data)
     elsif position >= count
-      return append(data)
+      append(data)
     else
       current = @head
       (position - 1).times do
@@ -77,26 +77,30 @@ class LinkedList
 
   def includes?(data, current = @head)
     begin
-      if current.data == data
-        return true
-      else
-        current = current.next_node
-        includes?(data, current)
-      end
+      return true if current.data == data
+      current = current.next_node
+      includes?(data, current)
     rescue NoMethodError
       false
     end
   end
 
   def pop
+    return nil if @head.nil?
+    if @head.next_node.nil?
+      data1 = @head.data
+      @head = nil
+      data1
+    else
     current = @head
     (count - 2).times do
       current = current.next_node
     end
-    data = "#{current.next_node.data}"
+    data = current.next_node.data
     current.next_node = nil
     data
+    end
+  end
     # we have to do this beacause the method returns the last line of code.
     # until current.next_node.next_node.nil? #(we can do this way too on line no 95.)
-  end
 end
